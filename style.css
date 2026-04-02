@@ -1,0 +1,942 @@
+/* ===================================================
+   9 WILDTHORN AVENUE — BUYER BEWARE
+   Dark, alarming, clinical.
+   =================================================== */
+
+/* RESET & BASE */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d1d5db;
+  background: #0a0a0a;
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+strong { color: #f3f4f6; font-weight: 700; }
+
+/* ===================================================
+   HERO
+   =================================================== */
+
+.hero {
+  background: linear-gradient(180deg, #1a0000 0%, #0a0a0a 100%);
+  border-bottom: 4px solid #dc2626;
+  padding: 0;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+.hazard-stripe {
+  height: 8px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #dc2626,
+    #dc2626 10px,
+    #000 10px,
+    #000 20px
+  );
+  margin: 2rem -1.5rem 0;
+}
+
+.hero-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.4)); }
+  50% { filter: drop-shadow(0 0 24px rgba(220, 38, 38, 0.8)); }
+}
+
+.hero-title {
+  font-size: clamp(3rem, 1rem + 8vw, 6rem);
+  font-weight: 900;
+  color: #dc2626;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-shadow: 0 0 40px rgba(220, 38, 38, 0.4), 0 0 80px rgba(220, 38, 38, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+.hero-address {
+  font-size: clamp(1rem, 0.8rem + 1vw, 1.35rem);
+  color: #9ca3af;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+/* HERO STATS */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-block {
+  background: #111;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 1.25rem 1rem;
+}
+
+.stat-block--danger {
+  border-color: #dc2626;
+  background: rgba(220, 38, 38, 0.08);
+}
+
+.stat-number {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  font-weight: 700;
+  color: #f3f4f6;
+  line-height: 1.1;
+}
+
+.stat-block--danger .stat-number {
+  color: #dc2626;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.35rem;
+  line-height: 1.3;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: #9ca3af;
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.7;
+}
+
+/* PAID CALLOUT */
+.paid-callout {
+  background: rgba(220, 38, 38, 0.06);
+  border: 2px solid #dc2626;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.paid-text {
+  font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.4rem);
+  font-weight: 700;
+  color: #f3f4f6;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.report-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.report-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.report-link:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.report-link svg {
+  display: inline;
+  flex-shrink: 0;
+}
+
+/* ===================================================
+   ALERT BAR
+   =================================================== */
+
+.alert-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.alert-bar svg {
+  flex-shrink: 0;
+  display: inline;
+}
+
+/* ===================================================
+   CONTENT SECTIONS
+   =================================================== */
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.content-section {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.section-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4b5563;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.section-number--danger {
+  color: #dc2626;
+}
+
+.section-title {
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 2rem);
+  font-weight: 800;
+  color: #f3f4f6;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.section-title--danger {
+  color: #dc2626;
+}
+
+.section-body p {
+  margin-bottom: 1rem;
+  max-width: 72ch;
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: #d1d5db;
+  line-height: 1.7;
+}
+
+.danger-text {
+  color: #fca5a5;
+}
+
+/* ===================================================
+   TIMELINE (Section 1)
+   =================================================== */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  background: #111;
+  border-left: 4px solid #dc2626;
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.25rem;
+}
+
+.timeline-item--active {
+  border-left-color: #f59e0b;
+}
+
+.timeline-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.timeline-agent {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.timeline-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #dc2626;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(220, 38, 38, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.timeline-item--active .timeline-status {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+/* ===================================================
+   CALLOUT
+   =================================================== */
+
+.callout {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fca5a5;
+  border-left: 3px solid #dc2626;
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ===================================================
+   PRICE COMPARISON (Section 2)
+   =================================================== */
+
+.price-compare {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-card {
+  background: #111;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.price-card--asking {
+  border-color: #dc2626;
+  background: rgba(220, 38, 38, 0.06);
+}
+
+.price-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.price-value {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1.2rem, 0.8rem + 1.5vw, 1.8rem);
+  font-weight: 700;
+  color: #f3f4f6;
+  line-height: 1.2;
+}
+
+.price-card--asking .price-value {
+  color: #dc2626;
+}
+
+.price-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.35rem;
+}
+
+.overprice-callout {
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid #dc2626;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.overprice-amount {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 1rem + 3vw, 3rem);
+  font-weight: 900;
+  color: #dc2626;
+  line-height: 1.1;
+}
+
+.overprice-text {
+  display: block;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+/* ===================================================
+   FACT LISTS
+   =================================================== */
+
+.fact-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fact-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+.fact-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #dc2626;
+}
+
+/* ===================================================
+   MOULD SECTION (Section 3)
+   =================================================== */
+
+.content-section--danger {
+  background: rgba(220, 38, 38, 0.03);
+  margin: 0 -1.5rem;
+  padding: 3.5rem 1.5rem;
+  border-top: 3px solid #dc2626;
+  border-bottom: 3px solid #dc2626;
+}
+
+.mould-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.mould-card {
+  background: #111;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  border: 2px solid #dc2626;
+}
+
+.mould-card--critical {
+  background: linear-gradient(180deg, rgba(220, 38, 38, 0.12) 0%, rgba(220, 38, 38, 0.03) 100%);
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.15);
+}
+
+.mould-room {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9ca3af;
+  margin-bottom: 0.75rem;
+}
+
+.mould-reading {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2.5rem, 1.5rem + 3.5vw, 4rem);
+  font-weight: 900;
+  color: #dc2626;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+}
+
+.mould-unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.mould-comparison {
+  font-size: 0.85rem;
+  color: #d1d5db;
+  margin-bottom: 0.25rem;
+}
+
+.mould-multiplier {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: #fca5a5;
+  font-size: 1rem;
+}
+
+/* DANGER BOX */
+.danger-box {
+  background: rgba(220, 38, 38, 0.08);
+  border: 2px solid #dc2626;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.danger-box-title {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.danger-box-title::before {
+  content: '\26A0';
+  font-size: 1.2rem;
+}
+
+.danger-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.danger-list li {
+  font-size: 0.95rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.danger-list li::before {
+  content: '\2716';
+  position: absolute;
+  left: 0;
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* CONDITION CARDS */
+.condition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.condition-card {
+  background: #111;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid #262626;
+}
+
+.condition-card--3 {
+  border-color: #dc2626;
+  background: rgba(220, 38, 38, 0.06);
+}
+
+.condition-card--2 {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.condition-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.condition-rating {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.condition-card--3 .condition-rating {
+  color: #dc2626;
+}
+
+.condition-card--2 .condition-rating {
+  color: #f59e0b;
+}
+
+.condition-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.fact-highlight {
+  background: #111;
+  border-left: 4px solid #f59e0b;
+  padding: 1rem 1.25rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+/* ===================================================
+   QUOTE BLOCK (Section 4)
+   =================================================== */
+
+.quote-block {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid #dc2626;
+  background: #111;
+  border-radius: 0 8px 8px 0;
+}
+
+.quote-block blockquote {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fca5a5;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.quote-block cite {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-style: normal;
+}
+
+.cost-callout {
+  background: rgba(220, 38, 38, 0.08);
+  border: 2px solid #dc2626;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.cost-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.cost-value {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 1rem + 3vw, 3rem);
+  font-weight: 900;
+  color: #dc2626;
+  line-height: 1;
+}
+
+/* ===================================================
+   DEFECT GRID (Section 5)
+   =================================================== */
+
+.defect-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.defect-card {
+  background: #111;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.defect-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.defect-card h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f3f4f6;
+  margin-bottom: 0.5rem;
+}
+
+.defect-card p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+/* ===================================================
+   CRIME (Section 6)
+   =================================================== */
+
+.content-section--dark {
+  background: #0f0f0f;
+  margin: 0 -1.5rem;
+  padding: 3.5rem 1.5rem;
+  border-top: 1px solid #1f1f1f;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.crime-box {
+  background: #111;
+  border: 1px solid #262626;
+  border-left: 4px solid #dc2626;
+  border-radius: 0 8px 8px 0;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.crime-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #dc2626;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.crime-text {
+  font-size: 0.95rem;
+  color: #d1d5db;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.crime-media {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #262626;
+  line-height: 1.6;
+}
+
+/* ===================================================
+   LEGAL (Section 9)
+   =================================================== */
+
+.content-section--legal {
+  border-bottom: none;
+}
+
+.legal-box {
+  background: #111;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.legal-box p {
+  margin-bottom: 1rem;
+}
+
+.legal-notice {
+  font-weight: 800;
+  color: #dc2626;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ===================================================
+   FOOTER / DISCLAIMER
+   =================================================== */
+
+.footer {
+  background: #050505;
+  border-top: 1px solid #1f1f1f;
+  padding: 3rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.disclaimer {
+  background: #111;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.disclaimer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f3f4f6;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.disclaimer p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  max-width: 72ch;
+}
+
+.disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-date {
+  font-size: 0.75rem;
+  color: #4b5563;
+  text-align: center;
+}
+
+/* ===================================================
+   RESPONSIVE
+   =================================================== */
+
+@media (max-width: 768px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .price-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .mould-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .defect-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .timeline-status {
+    justify-self: start;
+  }
+
+  .report-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .report-link {
+    justify-content: center;
+  }
+
+  .alert-bar {
+    font-size: 0.7rem;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-inner {
+    padding: 2rem 1rem 0;
+  }
+
+  .content-section {
+    padding: 2.5rem 0;
+  }
+
+  .content-section--danger,
+  .content-section--dark {
+    margin: 0 -1rem;
+    padding: 2.5rem 1rem;
+  }
+
+  .hazard-stripe {
+    margin: 1.5rem -1rem 0;
+  }
+}
+
+/* ===================================================
+   PRINT
+   =================================================== */
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .hero {
+    background: #fff;
+    border-bottom-color: #000;
+  }
+
+  .hero-title {
+    color: #000;
+    text-shadow: none;
+  }
+
+  .alert-bar {
+    background: #000;
+    color: #fff;
+  }
+}
