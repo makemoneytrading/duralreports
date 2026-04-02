@@ -90,7 +90,7 @@ strong { color: #f3f4f6; font-weight: 700; }
 /* HERO STATS */
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
 }
